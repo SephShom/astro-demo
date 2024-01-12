@@ -1,0 +1,9 @@
+---
+import PdfView from '../../../components/commons/PdfView';
+import LegalLayout from '../../../layouts/LegalLayout.astro';
+---
+<LegalLayout>
+  <main>        
+    <PdfView client:only="react" fileName = '/docs/legal/CONTRATO-DE-ADHESION.pdf'></PdfView>
+  </main>
+</LegalLayout>

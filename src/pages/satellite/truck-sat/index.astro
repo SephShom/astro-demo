@@ -1,0 +1,125 @@
+---
+import type { BreadcrumbModel } from "../../../components/navigation/model";
+import CardFeature from "../../../components/commons/CardFeature.astro";
+import Layout from "../../../layouts/Layout.astro";
+import Breadcrumb from "../../../components/navigation/Breadcrumb/Breadcrumb.astro";
+import Button from "../../../components/commons/Button";
+import TextCaption from "../../../components/commons/TextCaption.astro";
+import TextDescription from "../../../components/commons/TextDescription.astro";
+import TextLegend from "../../../components/commons/TextLegend.astro";
+
+const breadcrumbs: BreadcrumbModel[] = [
+    {
+      id: 1,
+      name: 'Inicio',
+      route: '/'
+    },
+    {
+      id: 2,
+      name: 'Servicios',
+      route: '/satellite'
+    },
+    {
+      id: 3,
+      name: 'Internet Móvil',
+      route: '/satellite/truck-sat'
+    }
+  ];
+  const caption1 = { text: "VSAT MÓVIL", dark: false };
+  const legend1 = { text: "Internet sobre ruedas", dark: false };
+  const description1 = {text: "", dark: false};
+  const caption2 = { text: "", dark: false };
+  const legend2 = { text: "¿Cómo funciona?", dark: false };
+  const description2 = {text: "Cada antena se fija generalmente en la parte mas alta del vehículo, a través de una estructura propia y especializada. Para mantener la conexión con el satélite mientras el vehículo está en movimiento, la antena incopora un sistema de seguimiento automático, que ajusta continuamente su orientación con respecto al satélite.", dark: false};
+  const caption3 = { text: "CARACTERISTICAS", dark: false };
+  const legend3 = { text: "Ideal para explorar, monitorizar o atender emergencias", dark: false };
+  const description3 = {text: "", dark: false};
+  const features = [
+    {
+      id: 1,
+      name: 'Antena Móvil',
+      brief: 'Tamaño compacto y diseño aerodinámico para su instalación en vehículos'
+    },
+    {
+      id: 2,
+      name: 'Modem Satelital',
+      brief: 'Interfaz compatible con el estándar DVB-S2'
+    },
+    {
+      id: 3,
+      name: 'Transceptor de Frecuencia',
+      brief: 'Sopoerte para L-Band, Ku-Band, Ka-Band'
+    },
+    {
+      id: 4,
+      name: 'Unidad de Control',
+      brief: 'Panel de control para la configuración y monitorización del sistema'
+    },
+    {
+      id: 5,
+      name: 'Sistema de Estabilización y Seguimiento',
+      brief: 'Para contrarrestar las vibraciones y movimientos del vehículo y mantener una conexión estable'
+    },
+    {
+      id: 6,
+      name: 'Red Interna',
+      brief: 'Enrutadores y switches que permiten la distribución de la conexión satelital a dispositivos internos'
+    },
+    {
+      id: 7,
+      name: 'Fuente de alimentación',
+      brief: 'Alimentación eficiente y segura para el sistema VSAT, adaptada a las condiciones de uso en vehículos'
+    },
+    {
+      id: 8,
+      name: 'Seguridad y Cifrado',
+      brief: 'Soporte para L-BanProtocolos de seguridad para proteger la integridad y confidencialidad de los datos transmitidosd, Ku-band, Ka-band'
+    }
+  ];
+---
+
+<Layout title="Satelital móvil">
+  <div class="pt-12 h-[60vh] bg-color-800 flex flex-col items-center justify-center gap-9">
+    <h2 class="text-color-200 text-5xl text-center">Internet Satelital Móvil</h2>
+    <Breadcrumb items={breadcrumbs}></Breadcrumb>
+  </div>
+  <main class="">
+    <section class="bg-[url(/images/services/truck01.jpg)] bg-no-repeat bg-right bg-cover">
+      <div class="grid grid-cols-1 md:grid-cols-2 bg-gradient-to-br from-color-200 via-color-50 md:bg-gradient-to-r md:from-color-200 md:via-color-50 md:via-40% ps-7 pe-7 pt-20 pb-20">
+        <div class="flex flex-col justify-center items-start gap-3 p-5">
+          <TextCaption text={caption1.text} dark={caption1.dark}></TextCaption>
+          <TextLegend text={legend1.text} dark={legend1.dark}></TextLegend>
+          <TextDescription text={description1.text} dark={description1.dark}></TextDescription>
+          <a href={'/contact'}>
+            <Button>Contáctanos</Button>
+          </a>              
+        </div>
+      </div>
+    </section>
+    <section class="ps-7 pe-7 pt-20 pb-20">
+      <div class="flex flex-col items-center p-5 gap-5">
+        <TextCaption text={caption2.text} dark={caption2.dark}></TextCaption>
+        <TextLegend text={legend2.text} dark={legend2.dark}></TextLegend>        
+        <div class="md:w-6/12 text-center">          
+          <TextDescription text={description2.text} dark={description2.dark}></TextDescription>
+        </div>
+        
+      </div>          
+    </section>
+    <section class="bg-color-300">
+      <div class="bg-[url(/images/backgrounds/banner-featured-2.png)] md:h-max p-10 flex flex-col overflow-hidden">
+        <div class="flex flex-col justify-center gap-3 p-5">
+          <TextCaption text={caption3.text} dark={caption3.dark}></TextCaption>
+          <TextLegend text={legend3.text} dark={legend3.dark}></TextLegend>
+          <TextDescription text={description3.text} dark={description3.dark}></TextDescription>
+        </div>
+        <div class="grid md:grid-cols-2 gap-5">
+          {
+            features.map(feature => <CardFeature id={feature.id} name={feature.name} brief={feature.brief}></CardFeature>)
+          }
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Layout>

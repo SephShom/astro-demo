@@ -1,0 +1,10 @@
+---
+import PdfView from '../../../components/commons/PdfView';
+import LegalLayout from '../../../layouts/LegalLayout.astro';
+---
+
+<LegalLayout>
+  <main>        
+    <PdfView client:only="react" fileName = '/docs/legal/resolucion-licencia-unica-att.pdf'></PdfView>
+  </main>
+</LegalLayout>

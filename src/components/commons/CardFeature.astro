@@ -1,0 +1,14 @@
+---
+interface Props {
+  id: number;
+  name: string;
+  brief?: string;  
+}
+
+const {id, name, brief } = Astro.props;
+---
+
+<div class="bg-color-950 text-color-200 font-black p-5 rounded-md transition ease-in-out duration-500 hover:bg-color-700">
+  <h2 class="text-lg mb-3">{name}</h2>        
+  <p class="text-sm text-color-400">{brief}</p>
+</div>

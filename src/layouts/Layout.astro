@@ -1,0 +1,85 @@
+---
+import NavBar from "../components/navigation/NavBar";
+import Footer from "../components/navigation/Footer/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/images/logo/favicon/favicon.png" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<NavBar client:only="react" />
+		<slot />
+		<Footer />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+		--base-color-50: #faf5ff;
+		--base-color-100: #f3e8ff;
+		--base-color-200: #e9d5ff;
+		--base-color-300: #d8b4fe;
+		--base-color-400: #c084fc;
+		--base-color-500: #a855f7;
+		--base-color-600: #9333ea;
+		--base-color-700: #7e22ce;
+		--base-color-800: #6b21a8;
+		--base-color-900: #581c87;
+		--base-color-950: #3b0764;
+		--accent-color: #f97316;
+		--border-radius: 10px;
+
+		--base-color-50: #f0fdf4;
+		--base-color-100: #dcfce7;
+		--base-color-200: #bbf7d0;
+		--base-color-300: #86efac;
+		--base-color-400: #4ade80;
+		--base-color-500: #22c55e;
+		--base-color-600: #16a34a;
+		--base-color-700: #15803d;
+		--base-color-800: #166534;
+		--base-color-900: #14532d;
+		--base-color-950: #052e16;
+		--accent-color: #f59e0b;
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		background-size: 224px;
+		overflow-x: hidden;
+	}
+	code {
+		font-family:
+			Ubuntu,
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+</style>

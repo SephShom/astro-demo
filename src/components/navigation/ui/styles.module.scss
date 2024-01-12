@@ -1,0 +1,141 @@
+//Styles for each main menu trigger dropdown
+.container {
+  position: relative;
+  padding: 1rem;  
+  .menuButton {
+    display: flex;
+    align-items: center;    
+    gap: 0.5rem;
+    font-size: 1rem;    
+    color: var(--base-color-200);
+    background-color: transparent;
+    border: none;
+    transition: filter 300ms;    
+    &:hover {    
+      filter: brightness(1.5);      
+      .menuButtonIcon {
+        transform: rotate(180deg);
+      }  
+    }
+
+    &.active {
+      color: var(--base-color-500);
+      border-bottom-style: solid;
+      border-bottom-color: var(--base-color-500);
+    }
+    .menuButtonIcon {      
+      vertical-align: bottom;
+      -webkit-transition: -webkit-transform .8s ease-in-out;
+      -ms-transition: -ms-transform .8s ease-in-out;
+      transition: transform .8s ease-in-out; 
+      &:hover {
+        transform: rotate(180deg);
+      }      
+    }
+  }
+}
+
+//Styles for each menu dropdown
+.dropDown {
+  font-size: 90%;  
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  color: var(--base-color-800);
+  background-color: var(--base-color-200);
+  border-radius: var(--border-radius);
+  padding: 0.75rem;    
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;    
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: 20px;
+    height: 20px;
+    width: 20px;
+    background-color: var(--base-color-200);
+    transform: rotate(45deg);
+  }
+  
+  .dropMenu {        
+    .dropMenuSection {
+      display: flex;
+      flex-direction: row;      
+      .banner {
+        background-color: var(--base-color-800);
+        color: var(--base-color-200);
+        border-radius: var(--border-radius);
+        width: 100%;
+        min-width: 13rem;
+        padding: 1.3rem;  
+        display: flex;                     
+        flex-direction: column;
+        justify-content: flex-end;
+        .bannerIcon {
+          margin-top: 50%;
+          margin-bottom: 0.5rem;
+        }
+        .bannerTitle {                    
+          font-size: 1.2rem;
+          margin-bottom: 0.5rem;
+        }
+        .bannerDescription {
+          font-size: 0.75rem;
+          margin-bottom: 0.5rem;
+        }        
+      }
+      .dropMenuList {
+        list-style: none;
+        display: grid;
+        grid-template-columns: 1fr;        
+        gap: 1rem;
+        padding: 1rem;         
+        @media screen and (min-width: 768px) {
+          grid-template-columns: repeat(1, 1fr);      
+        }
+        .dropMenuItem {
+          display: block;          
+          padding: 0.5rem;
+          color: var(--base-color-800);
+          border-radius: var(--border-radius);
+          transition: background-color 300ms;
+          &:hover {            
+            background-color: var(--base-color-300);
+            border-radius: var(--border-radius);
+          }
+          @media screen and (min-width: 768px) {
+            width: 15rem;      
+          }
+          
+        }       
+      }
+      .dropMenuListGrid {
+        list-style: none;
+        display: grid;
+        grid-template-columns: 1fr;        
+        gap: 1rem; 
+        padding: 1rem; 
+        @media screen and (min-width: 768px) {
+          grid-template-columns: repeat(2, 1fr);      
+        }
+        .dropMenuItem {
+          display: block;          
+          padding: 0.5rem;
+          color: var(--base-color-800);
+          border-radius: var(--border-radius);
+          transition: background-color 300ms;
+          &:hover {            
+            background-color: var(--base-color-300);
+            border-radius: var(--border-radius);
+          }
+          @media screen and (min-width: 768px) {
+            width: 15rem;      
+          }
+          
+        }       
+      }
+    }
+  }
+}
+

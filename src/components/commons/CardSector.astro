@@ -1,0 +1,21 @@
+---
+interface Props {
+  id: number;
+  src?: string;
+  name: string;
+  brief?: string;  
+  route?: string;
+}
+
+const { id, src, name, brief, route} = Astro.props;
+---
+
+<div class="flex flex-col items-center gap-5 p-5 m-5 text-color-200 rounded-lg">
+  <div class="h-40 w-40 max-h-40 rounded-full overflow-hidden bg-color-200">
+    <img class="object-cover h-40 transition ease-in-out duration-1000 hover:scale-150" src={src ? src : ''} alt="Presentation" width={160} height={160}/>
+  </div>
+  <div class="flex flex-col gap-3 items-center">
+    <h3 class="text-2xl font-semibold text-center">{name}</h3>
+    <p class="w-10/12 text-center">{brief ? brief : ''}</p>
+  </div>
+</div>

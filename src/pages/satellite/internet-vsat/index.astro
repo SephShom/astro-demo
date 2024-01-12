@@ -1,0 +1,175 @@
+---
+import type { BreadcrumbModel } from "../../../components/navigation/model";
+import CardFeature from "../../../components/commons/CardFeature.astro";
+import Layout from "../../../layouts/Layout.astro";
+import Breadcrumb from "../../../components/navigation/Breadcrumb/Breadcrumb.astro";
+import Button from "../../../components/commons/Button";
+import TextCaption from "../../../components/commons/TextCaption.astro";
+import TextDescription from "../../../components/commons/TextDescription.astro";
+import TextLegend from "../../../components/commons/TextLegend.astro";
+import PageIcon from "../../../components/commons/icons/PageIcon";
+
+
+const breadcrumbs: BreadcrumbModel[] = [
+    {
+      id: 1,
+      name: 'Inicio',
+      route: '/'
+    },
+    {
+      id: 2,
+      name: 'Servicios',
+      route: '/satellite'
+    },
+    {
+      id: 3,
+      name: 'Estación VSAT',
+      route: '/satellite/internet-vsat'
+    }
+  ];
+  const caption1 = { text: "VSAT FIJO", dark: false };
+  const legend1 = { text: "Versátil, escalable, resiliente", dark: false };
+  const description1 = { text: "Sistema que utiliza satélites en órbita para transmitir datos directamente a una antena fija permitiendo el acceso a internet de alta velocidad", dark: false }
+  const caption2 = { text: "", dark: true };
+  const legend2 = { text: "Despliegue", dark: true };
+  const description2 = { text: "Personal especializado realizará la instalación de todo el hardware necesario establecido en una planificación previa que cubra todas las necesidades particulares requeridas.", dark: true };
+  const caption3 = { text: "CARACTERISTICAS", dark: false };
+  const legend3 = { text: "Estabilidad y velocidad", dark: false };
+  const description3 = { text: "", dark: false } 
+  
+  const features = [
+    {
+      id: 1,
+      name: 'Bandas Ku y L',
+      brief: 'Configuracion y uso de frecuencias combinadas'
+    },
+    {
+      id: 2,
+      name: 'Desde 1024Kbps hasta 350Mbps',
+      brief: 'Velocidad y contención reconfigurables'
+    },
+    {
+      id: 3,
+      name: 'Monitoreo QoS 24/7',
+      brief: 'Se activan sistemas de control de continuidad del servicio desde el primer día'
+    }
+  ];
+---
+
+<Layout title="Internet Vsat.">
+  <div class="pt-12 h-[60vh] bg-color-800 flex flex-col items-center justify-center gap-9">
+    <h2 class="text-color-200 text-5xl text-center">Estación VSAT</h2>
+    <Breadcrumb items={breadcrumbs}></Breadcrumb>
+  </div>
+  <main>
+    {/* Header */}
+    <section class="bg-[url(/images/activities/sector05.jpg)] bg-no-repeat bg-right bg-cover">
+      <div class="grid grid-cols-1 md:grid-cols-2 bg-gradient-to-br from-color-200 via-color-50 via-20% md:bg-gradient-to-r md:from-color-200 md:via-color-50 md:via-35% ps-7 pe-7 pt-20 pb-20">
+        <div class="flex flex-col justify-center items-start gap-3 p-5">
+          <TextCaption text={caption1.text} dark={caption1.dark}></TextCaption>
+          <TextLegend text={legend1.text} dark={legend1.dark}></TextLegend>
+          <TextDescription text={description1.text} dark={description1.dark}></TextDescription>
+          <a href={'/contact'}>
+            <Button>Contáctanos</Button>
+          </a>              
+        </div>
+      </div>
+    </section>
+    {/* How */}        
+    <section class="bg-color-950">
+      <div class="ps-7 pe-7 pt-20 pb-20">
+        <div class="flex flex-col items-center gap-3 p-5">
+          <TextCaption text={caption2.text} dark={caption2.dark}></TextCaption>
+          <TextLegend text={legend2.text} dark={legend2.dark}></TextLegend>
+          <div class="md:w-6/12 text-center">
+            <TextDescription text={description2.text} dark={description2.dark}></TextDescription>  
+          </div>
+        </div>
+        <div class="hidden md:flex justify-around items-center p-14 text-color-400">
+          <div class="flex flex-col items-center">
+            <div class="rounded-full p-4 border-solid border-4 border-color-500">
+              <PageIcon iconName="building" size={60}></PageIcon>
+            </div>
+            <p class="font-semibold">Tu Red Interna</p>
+          </div>
+          <div>
+            <PageIcon iconName="arrowdoubleH" size={20}></PageIcon>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="rounded-full p-4 border-solid border-4 border-color-500">
+              <PageIcon iconName="satellite" size={60}></PageIcon>
+            </div>
+            <p class="font-semibold">VSAT</p>
+          </div>
+          <div>
+            <PageIcon iconName="arrowdoubleH" size={20}></PageIcon>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="rounded-full p-4 border-solid border-4 border-color-500">
+              <PageIcon iconName="satcom" size={60}></PageIcon>
+            </div>
+            <p class="font-semibold">Satélite</p>
+          </div>
+          <div>
+            <PageIcon iconName="arrowdoubleH" size={20}></PageIcon>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="rounded-full p-4 border-solid border-4 border-color-500">
+              <PageIcon iconName="noc" size={60}></PageIcon>
+            </div>
+            <p class="font-semibold">NOC</p>
+          </div>
+          <div>
+            <PageIcon iconName="arrowdoubleH" size={20}></PageIcon>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="rounded-full p-4 border-solid border-4 border-color-500">
+              <PageIcon iconName="cloud" size={60}></PageIcon>
+            </div>
+            <p class="font-semibold">Internet</p>
+          </div>
+        </div>
+        <div class="md:hidden flex justify-around items-center p-14 text-color-400">
+          <div class="flex flex-col items-center">
+            <div class="rounded-full p-4 border-solid border-4 border-color-500">
+              <PageIcon iconName="building" size={60}></PageIcon>
+            </div>
+            <p class="font-semibold">Red</p>
+          </div>
+          <div>
+            <PageIcon iconName="arrowdoubleH" size={20}></PageIcon>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="rounded-full p-4 border-solid border-4 border-color-500">
+              <PageIcon iconName="satellite" size={60}></PageIcon>
+            </div>
+            <p class="font-semibold">VSAT</p>
+          </div>
+          <div>
+            <PageIcon iconName="arrowdoubleH" size={20}></PageIcon>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="rounded-full p-4 border-solid border-4 border-color-500">
+              <PageIcon iconName="satcom" size={60}></PageIcon>
+            </div>
+            <p class="font-semibold">Satélite</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-color-300">
+      <div class="bg-[url(/images/backgrounds/banner-featured-2.png)] bg-no-repeat bg-cover md:h-max grid md:grid-cols-2 p-10">
+        <div class="flex flex-col justify-center gap-3 p-5">
+          <TextCaption text={caption3.text} dark={caption3.dark}></TextCaption>
+          <TextLegend text={legend3.text} dark={legend3.dark}></TextLegend>
+          <TextDescription text={description3.text} dark={description3.dark}></TextDescription>
+        </div>
+        <div class="grid gap-5">
+          {
+            features.map(feature => <CardFeature id={feature.id} name={feature.name} brief={feature.brief}></CardFeature>)
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

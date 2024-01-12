@@ -1,0 +1,124 @@
+---
+import type { BreadcrumbModel } from "../../components/navigation/model";
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumb from "../../components/navigation/Breadcrumb/Breadcrumb.astro";
+import Button from "../../components/commons/Button";
+import TextCaption from "../../components/commons/TextCaption.astro";
+import TextDescription from "../../components/commons/TextDescription.astro";
+import TextLegend from "../../components/commons/TextLegend.astro";
+import CardSector from "../../components/commons/CardSector.astro";
+
+const breadcrumbs: BreadcrumbModel[] = [
+    {
+      id: 1,
+      name: 'Inicio',
+      route: '/'
+    },
+    {
+      id: 2,
+      name: 'Productos',
+      route: '/networking'
+    },
+    {
+      id: 3,
+      name: 'Networking',
+      route: '/networking'
+    }
+  ];
+
+  const caption1 = { text: "NETWORKING", dark: false };
+  const legend1 = { text: "Redes y equipamiento", dark: false };
+  const description1 = { text: "Proveemos del mejor equipo de red y seguridad, aportanto tambien en la configuración e instalacion que se requiera", dark: false };
+
+  const caption2 = { text: "EQUIPO PARA NETWORKING", dark: true };
+  const legend2 = { text: "Categorías", dark: true };
+  const sectors = [
+    {
+      id: 1,
+      src: '/images/services/network01.jpg',
+      name: 'Video vigilancia ',
+      brief: 'Venta e instalacion de cámaras de seguridad, con y sin DVR'
+    },
+    {
+      id: 2,
+      src: '/images/services/network02.jpg',
+      name: 'Control de Acceso',
+      brief: 'Gran gama de porteros automáticos inteligentes con una diversa gama de opciones de segurdad'
+    },
+    {
+      id: 3,
+      src: '/images/services/network03.jpg',
+      name: 'Alarmas y domótica',
+      brief: 'Sistemas de alarma, instalacion y configuracion.'
+    },
+    {
+      id: 4,
+      src: '/images/services/network04.jpg',
+      name: 'GPS',
+      brief: 'Equipos para GPS en vehículos'
+    },
+    {
+      id: 5,
+      src: '/images/services/network05.jpg',
+      name: 'Redes',
+      brief: 'Switches y enrutadores'
+    },
+    {
+      id: 6,
+      src: '/images/services/network06.jpg',
+      name: 'Telefonía',
+      brief: 'Los equipos mas variados para telefonía IP'
+    },
+    {
+      id: 7,
+      src: '/images/services/network07.png',
+      name: 'Radiocomunicaciones',
+      brief: 'Sistemas y equipos de radio para campamentos y uso remoto'
+    },
+    {
+      id: 8,
+      src: '/images/services/network08.jpg',
+      name: 'Cableado Estructurado',
+      brief: 'UTP, fibra conectores, gabinetes, etc'
+    },
+    {
+      id: 9,
+      src: '/images/services/network09.jpg',
+      name: 'Cómputo',
+      brief: 'Equipo para computadores como discos SSD, HDD, RAM, tarjetas gráficas, etc'
+    }
+  ];
+---
+
+<Layout title="Networking">
+  <div class="pt-12 h-[60vh] bg-color-800 flex flex-col items-center justify-center gap-9">
+    <h2 class="text-color-200 text-5xl text-center">Networking</h2>
+    <Breadcrumb items={breadcrumbs}></Breadcrumb>
+  </div>
+  <main class="w-screen">
+    <section class="bg-[url(/images/services/network-01.jpg)] bg-no-repeat bg-right bg-cover">
+      <div class="grid grid-cols-1 md:grid-cols-2 bg-gradient-to-br from-color-200 via-color-50 via-40% md:bg-gradient-to-r md:from-color-200 md:via-color-50 md:via-40% ps-7 pe-7 pt-20 pb-20">
+        <div class="flex flex-col justify-center gap-3 p-5">
+          <TextCaption text={caption1.text} dark={caption1.dark}></TextCaption>
+          <TextLegend text={legend1.text} dark={legend1.dark}></TextLegend>
+          <TextDescription text={description1.text} dark={description1.dark}></TextDescription>
+          <a href={'/contact'}>
+            <Button>Contáctanos</Button>  
+          </a>              
+        </div>
+      </div>
+    </section>
+    <section class="bg-color-900">
+      <div class="flex flex-col w-full pt-20 pb-20">
+        <div class="flex flex-col justify-start items-start ms-10 mt-10">
+          <TextCaption text={caption2.text} dark={caption2.dark}></TextCaption>
+          <TextLegend text={legend2.text} dark={legend2.dark}></TextLegend>          
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-10 md:ps-32 md:pe-32 md:pt-20 md:pb-20">
+          {sectors.map(sector => <CardSector id={sector.id} src={sector.src} name={sector.name} brief={sector.brief}></CardSector>)}
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Layout>

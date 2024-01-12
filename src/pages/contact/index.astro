@@ -1,0 +1,49 @@
+---
+import ContactForm from '../../components/contact/ContactForm'
+import type { ServiceModel } from '../../components/contact/model';
+import Breadcrumb from '../../components/navigation/Breadcrumb/Breadcrumb.astro';
+import type { BreadcrumbModel } from '../../components/navigation/model';
+import Layout from '../../layouts/Layout.astro';
+
+const breadcrumbs: BreadcrumbModel[] = [
+    {
+      id: 1,
+      name: 'Inicio',
+      route: '/'
+    },
+    {
+      id: 2,
+      name: 'Nosotros',
+      route: '/'
+    },
+    {
+      id: 3,
+      name: 'Contacto',
+      route: '/'
+    }
+  ];
+  
+const services: ServiceModel[] = [
+    {
+      id: '1',
+      name: 'Internet satelital'
+    },
+    {
+      id: '2',
+      name: 'Enlazar oficinas remotas'
+    },
+    {
+      id: '3',
+      name: 'Compra de equipos'
+    }
+  ];
+---
+<Layout title="Contact page.">
+  <div class="pt-12 h-[60vh] bg-color-800 flex flex-col items-center justify-center gap-9">
+    <h2 class="text-color-200 text-5xl">Contacto</h2>
+      <Breadcrumb items={breadcrumbs}></Breadcrumb>
+  </div>
+  <section class="mt-8 mb-8">
+    <ContactForm services={services}></ContactForm>
+  </section>  
+</Layout>

@@ -1,0 +1,57 @@
+---
+import type { BreadcrumbModel } from "../components/navigation/model";
+import Breadcrumb from "../components/navigation/Breadcrumb/Breadcrumb.astro";
+import Layout from "./Layout.astro";
+
+const breadcrumbs: BreadcrumbModel[] = [
+  {
+    id: 1,
+    name: 'Inicio',
+    route: '/'
+  },
+  {
+    id: 2,
+    name: 'Nosotros',
+    route: '/about'
+  },
+  {
+    id: 3,
+    name: 'Nuestros Términos',
+    route: '/terms'
+  }
+];
+---
+
+<Layout title="">
+  <div class="pt-12 h-[60vh] bg-color-800 flex flex-col items-center justify-center gap-9">
+    <h2 class="text-color-200 text-5xl">Nuestros Términos</h2>
+    <Breadcrumb items={breadcrumbs}></Breadcrumb>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-[20rem,1fr] bg-color-950 text-color-50">
+    <div class="p-8">
+      <div class="text-2xl font-bold mb-5 mt-5">Portal</div>
+      <ul class="flex flex-col gap-3 mb-5">            
+        <li>
+          <a href={'/legal/terms'}>Términos y Condiciones de Uso</a>  
+        </li>
+        <li>
+          <a href={'/legal/privacy'}>Acuerdo de Privacidad</a>  
+        </li>
+      </ul>
+      <hr />
+      <div class="text-2xl font-bold mb-5 mt-5">Servicios</div>
+      <ul class="flex flex-col gap-3">            
+        <li>
+          <a href={'/legal/sterms'}>Términos y Condiciones del Servicio</a>  
+        </li>
+        <li>
+          <a href={'/legal/licence'}>Licencia</a>  
+        </li>
+        <li>
+          <a href={'/legal/contract'}>Contrato Modelo</a>  
+        </li>
+      </ul>
+    </div>
+    <div class="legal p-5 lg:pt-20 lg:pb-20 lg:ps-24 lg:pe-32"><slot/></div>
+  </div>      
+</Layout>

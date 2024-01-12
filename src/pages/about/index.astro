@@ -1,0 +1,104 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import NavBar from '../../components/navigation/NavBar';
+import TextCaption from '../../components/commons/TextCaption.astro';
+import TextLegend from '../../components/commons/TextLegend.astro';
+import TextDescription from '../../components/commons/TextDescription.astro';
+import CardService from '../../components/commons/CardService.astro';
+import Button from '../../components/commons/Button';
+import type { BreadcrumbModel } from '../../components/navigation/model';
+import Breadcrumb from '../../components/navigation/Breadcrumb/Breadcrumb.astro';
+
+const breadcrumbs: BreadcrumbModel[] = [
+    {
+      id: 1,
+      name: 'Inicio',
+      route: '/'
+    },
+    {
+      id: 2,
+      name: 'Nosotros',
+      route: '/'
+    },    
+  ];
+const caption1 = { text: "TELECOMUNICACIONES", dark: false };
+const legend1 = { text: "Tecnología en Seguridad y Comunicaciones", dark: false };
+const description1 = { text: "Somos una empresa legalmente establecida en Bolivia, para ofrecer servicios de Telecomunicaciones en distintas áreas: Sistemas Satelitales, Sistemas Terrestres, Venta de equipamiento de Networking, Mantenimiento y otros.", dark: false };
+const caption2 = { text: "", dark: true };
+const legend2 = { text: "¿Por qué nos eligen?", dark: true };
+const description2 = { text: "Somos una empresa legalmente establecida en Bolivia, para ofrecer servicios de Telecomunicaciones en distintas áreas: Sistemas Satelitales, Sistemas Terrestres, Venta de equipamiento de Networking, Mantenimiento y otros.", dark: true };
+const caption3 = { text: "LICENCIA REGULADA", dark: false };
+const legend3 = { text: "", dark: false };
+const description3 = { text: "trisecom fué autorizada por el gobierno de Bolivia a través de la ATT, para proporcionar los servicios de telecomuncación en todo el país, mediante la resolución ATT-DJ-RAR-TL LP 555/2018", dark: false };
+const services = [
+    {
+      id: 1,
+      name: 'Innovación',
+      brief: 'Siempre a la vanguardia incorporando nuevas tecnologías',
+      icon: 'innovative'
+    },
+    {
+      id: 2,
+      name: 'Colaborativa',
+      brief: 'Somos socios tecnológicos de nuestros clientes. Trabajamos y mejoramos juntos',
+      icon: 'collaborative'
+    },
+    {
+      id: 3,
+      name: 'Experiencia',
+      brief: 'A lo largo de estos años hemos trabajado en una gran diversidad de soluciones para distintos sectores de la industria',
+      icon: 'experience'
+    },
+    {
+      id: 4,
+      name: 'Alianzas',
+      brief: 'Gracias a nuestras alianzas internacionales, disponemos de la red agnóstica más grande del mundo',
+      icon: 'network'
+    }
+  ];
+---
+
+<Layout title="About page.">
+  <div class="pt-12 h-[60vh] bg-color-800 flex flex-col items-center justify-center gap-9">
+    <h2 class="text-color-200 text-5xl">Nosotros</h2>
+    <Breadcrumb items={breadcrumbs}></Breadcrumb>
+  </div>
+  <main>    
+    <section class="bg-[url(/images/backgrounds/banner-sat01.jpg)] bg-no-repeat bg-right bg-cover">
+      <div class="grid grid-cols-1 md:grid-cols-2 bg-gradient-to-br from-color-200 via-color-50 via-40% md:bg-gradient-to-r md:from-color-200 md:via-color-50 md:via-40% ps-7 pe-7 pt-20 pb-20">
+        <div class="flex flex-col justify-center gap-3 p-5">
+          <TextCaption text={caption1.text} dark={caption1.dark}></TextCaption>
+          <TextLegend text={legend1.text} dark={legend1.dark}></TextLegend>
+          <TextDescription text={description1.text} dark={description1.dark}></TextDescription>
+          <a href={'/contact'}>
+            <Button>Contáctanos</Button>
+          </a>              
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="flex flex-col w-full gap-3 bg-[url('/images/backgrounds/banner-featured-1.jpg')] bg-cover pt-20 pb-20">
+        <div class="flex flex-col justify-start items-start ms-10 mt-10 gap-3">
+          <TextCaption text={caption2.text} dark={caption2.dark}></TextCaption>
+          <TextLegend text={legend2.text} dark={legend2.dark}></TextLegend>
+        </div>
+        <div class="grid md:grid-cols-4 p-5 gap-10">
+          {services.map(service => <CardService id={service.id} name={service.name} brief={service.brief} icon={service.icon}></CardService>)}
+        </div>
+      </div>
+    </section>
+    <section class="bg-[url(/images/backgrounds/bgan02.jpg)] bg-no-repeat bg-fixed">
+      <div class="ps-7 pe-7 pt-20 pb-20 bg-gradient-to-br from-color-200 via-color-50 via-40%">
+        <div class="flex flex-col items-center p-5 gap-5">
+          <TextCaption text={caption3.text} dark={caption3.dark}></TextCaption>
+          <TextLegend text={legend3.text} dark={legend3.dark}></TextLegend>
+          <div class="w-6/12 text-center">
+            <TextDescription text={description3.text} dark={description3.dark} ></TextDescription>
+          </div>          
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 pt-8 pb-8 gap-3">
+        </div>
+      </div>
+    </section>   
+  </main>
+</Layout>

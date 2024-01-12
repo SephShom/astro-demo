@@ -1,0 +1,27 @@
+---
+import PageIcon from '../commons/icons/PageIcon';
+
+interface Props {
+  id: number;
+  route?: string;
+  name: string;
+  brief?: string;
+  icon: string;
+}
+
+const {id, route, name, brief, icon} = Astro.props;
+
+---
+
+<a href={route? route : '#'}>
+  <div class="rounded-3xl shadow-md h-72 p-3  text-color-200 bg-gradient-to-bl from-color-500 to-color-900 hover:bg-gradient-to-tr overflow-hidden">
+    <div class="flex flex-col p-5 gap-5">
+      <div>        
+        <PageIcon iconName={icon} size={60}></PageIcon>
+      </div>
+      <h2 class="text-3xl md:text-xl font-bold">{name}</h2>
+      <p class="text-sm">{brief ? brief : ''}</p>
+      {/* <p className="text-accent-all text-sm">Ver mas...</p>             */}
+    </div>
+  </div>
+</a>

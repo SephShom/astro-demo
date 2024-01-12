@@ -1,0 +1,56 @@
+---
+  import SocialMedia from "../ui/SocialMedia";
+  import {FiMail, FiPhone} from "react-icons/fi";
+  import {FaRegAddressCard} from "react-icons/fa";
+  import {MdOutlinePlace} from "react-icons/md";
+---
+
+<div class="flex flex-col items-center md:gap-10 gap-5 bottom-0 bg-color-800 h-max w-screen justify-between p-5 xl:gap-0 xl:items-start xl:flex-row">
+  <div class="flex flex-col gap-5 mt-5">
+    <div class="flex items-center justify-start">
+      <img class="max-h-20 w-12" src={'/images/logo/logo.png'} width={1579} height={1452} alt="logo"/>
+      <h2 class="text-3xl font-black text-color-200">trisecom</h2>
+    </div>
+    <SocialMedia></SocialMedia>
+  </div>
+  <div class="flex justify-around text-color-200 w-full gap-5">
+    <div class="flex flex-col items-start gap-2">
+      <div class="text-lg font-black">Servicios</div>
+      <a class="text-sm hover:brightness-125 hover:font-bold" href={'/satellite/internet-vsat'}>Estación VSAT</a>
+      <a class="text-sm hover:brightness-125 hover:font-bold" href={'/satellite/truck-sat'}>Internet Móvil</a>
+      <a class="text-sm hover:brightness-125 hover:font-bold" href={'/satellite/mobile-sat'}>Internet Portátil</a>
+      <a class="text-sm hover:brightness-125 hover:font-bold" href={'/satellite/high-star'}>High Speed BroadBand</a>          
+      <a class="text-sm hover:brightness-125 hover:font-bold" href={'/satellite/phone-sat'}>Telefonía Satelital</a>
+      <a class="text-sm hover:brightness-125 hover:font-bold" href={'/satellite/a-sat'}>Red Privada Satelital</a>
+      <a class="text-sm hover:brightness-125 hover:font-bold" href={'/satellite/backup-sat'}>Backup & Redundancia</a>
+    </div>
+    <div class="flex flex-col items-start gap-2">
+      <div class="text-lg font-black">Productos</div>
+      <a class="text-sm hover:brightness-125 hover:font-bold" href={'/networking'}>Redes y NetWorking</a>          
+    </div>
+    <div class="flex flex-col items-start gap-2">
+      <div class="text-lg font-black">Nosotros</div>
+      <a class="text-sm hover:brightness-125 hover:font-bold" href={'/about'}>Nosotros</a>          
+      <a class="text-sm hover:brightness-125 hover:font-bold" href={'/legal/terms'}>Nuestros Términos</a>          
+    </div>
+  </div>
+  <div class="text-color-200 flex flex-col items-center md:items-start gap-2">
+    <div class="text-lg mb-2 font-black">Contacto</div>
+    <div class="flex gap-2">
+      <FiPhone size={20}></FiPhone>
+      <div class="text-sm">(+591) 73591900</div>        
+    </div>
+    <div class="flex gap-2">
+      <FiMail size={20}></FiMail>
+      <div class="text-sm">contacto@trisecom.com</div>
+    </div>        
+    <div class="flex gap-2">
+      <MdOutlinePlace size={20}></MdOutlinePlace>  
+      <div class="text-xs">Cond. Valle de Cartago, Zona Norte</div>              
+    </div>
+    <div class="flex gap-2">
+      <FaRegAddressCard size={20}></FaRegAddressCard>  
+      <div class="text-xs">Santa Cruz de la Sierra - Bolivia</div>
+    </div>
+  </div>
+</div>

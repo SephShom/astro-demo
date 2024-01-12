@@ -1,0 +1,182 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SliderBuild from '../components/slider/SliderBuild';
+import Button from "../components/commons/Button";
+import TextCaption from "../components/commons/TextCaption.astro";
+import TextDescription from "../components/commons/TextDescription.astro";
+import TextLegend from "../components/commons/TextLegend.astro";
+import CardSector from "../components/commons/CardSector.astro";
+import CardService from '../components/commons/CardService.astro';
+
+	const slides = [
+			{
+				id: 1,
+				title: 'Aún desde el sitio más remoto',
+				subtitle: 'internet satelital te conecta',
+				url: '/images/services/bgan01.jpg',
+				description: ''
+			},
+
+			{
+				id: 2,
+				subtitle: 'para trabajos extremos',
+				title: 'Soluciones con tecnología móvil',
+				url: '/images/backgrounds/banner02.jpg',
+				description: ''
+			},
+			{
+				id: 3,
+				subtitle: 'o de construcción',
+				title: 'Campamentos mineros, petroleros',
+				url: '/images/backgrounds/banner03.jpg',
+				description: ''
+			},
+			{
+				id: 4,
+				subtitle: 'No te quedes sin comunicación',
+				title: 'Redundancia para tus servicios',
+				url: '/images/backgrounds/banner04.jpg',
+				description: ''
+			},
+			{
+				id: 5,
+				subtitle: 'Banda L',
+				title: 'Sin fin de satélites en orbita baja',
+				url: '/images/backgrounds/banner05.jpg',
+				description: ''
+			},
+			{
+				id: 6,
+				subtitle: 'tecnológicas para toda empresa',
+				title: 'Integración de servicios y soluciones',
+				url: '/images/backgrounds/banner06.jpg',
+				description: ''
+			},
+			{
+				id: 7,
+				subtitle: 'ISPs',
+				title: 'Soluciones para',
+				url: '/images/backgrounds/banner07.jpg',
+				description: ''
+			}
+		];
+
+	const caption1 = { text: "SUPERANDO EXPECTATIVAS", dark: false };
+  const legend1 = { text: "¿Cómo conectarse desde cualquier lugar?", dark: false };
+  const description1 = { text: "Proporcionamos soluciones a medida en todas las áreas de comunicación satelital", dark: false };
+  const caption2 = { text: "PORQUE NOS APASIONA", dark: true };
+  const legend2 = { text: "Nuestro trabajo", dark: true };
+  const caption3 = { text: "¿CÓMO PODEMOS AYUDARLE?", dark: true };
+  const legend3 = { text: "Soluciones por sector", dark: true };
+  const services = [
+    {
+      id: 1,
+      route: '/satellite',
+      name: 'Máxima cobertura',
+      brief: 'Servicio efectivo de comunicación ante la ausencia de cualquier otro medio convencional',
+      icon: 'coverage'
+    },
+    {
+      id: 2,
+      route: '/satellite',
+      name: 'Resiliencia',
+      brief: 'Las redes satelitales proporcionan un salvavidas en situaciones críticas y de desastres',
+      icon: 'resilience'
+    },
+    {
+      id: 3,
+      route: '/satellite',
+      name: 'Movilidad',
+      brief: 'Monitoreo, búsqueda y comunicación para cubrir áreas requeridas con equipo para vehículos o de mano',
+      icon: 'mobile'
+    },
+    {
+      id: 4,
+      route: '/networking',
+      name: 'Equipamiento',
+      brief: 'Suministro, configuración e instalación de equipos de red y seguridad',
+      icon: 'security'
+    }
+  ];
+  const sectors = [
+    {
+      id: 1,
+      src: '/images/activities/sector01.png',
+      name: 'Empresas constructoras',
+      brief: 'Instlamos antenas VSAT fijas en los campamentos mas una red UTP y WiFi para la distribución del acceso a internet que pueden ampliarse a las áreas de vivienda del personal'
+    },
+    {
+      id: 2,
+      src: '/images/activities/sector03.jpg',
+      name: 'Actividad hidrocarburífera y minera',
+      brief: 'Tanto en las fases de exploración así como en los campamentos ya establecidos proveemos soluciones móviles de antenas autoapuntables en vehículos o instalaciones fijas para la gestión de información'
+    },
+    {
+      id: 3,
+      src: '/images/activities/sector02.jpg',
+      name: 'Integración de aplicaciones',
+      brief: 'Proveemos enlaces con redes seguras VPN para la actualización de información en tiempo real desde cualquier oficina remota hacia sus servidores'
+    },
+    {
+      id: 4,
+      src: '/images/activities/sector07.jpg',
+      name: 'Bancos y empresas financieras',
+      brief: 'Tanto conexiones principales así como secundarias de respaldo necesarias para asegurar la continuidad en los servicios bancarios, como ATMs y oficinas en poblados pequeños y con acceso limitado a internet'
+    },
+    {
+      id: 5,
+      src: '/images/activities/sector04.jpg',
+      name: 'Turismo',
+      brief: 'Acceso a internet de alta velocidad para campamentos turísticos en sitios remotos con redes WiFi para sus clientes'
+    }
+  ];  
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<SliderBuild client:only="react" slides={slides}></SliderBuild>		
+    <section class="bg-[url(/images/services/isatphone2_01.jpg)] bg-no-repeat bg-right bg-cover xl:bg-contain">
+			<div class="grid grid-cols-1 md:grid-cols-2 bg-gradient-to-br from-color-200 via-color-50 via-20% md:bg-gradient-to-r md:from-color-200 md:via-color-50 md:via-35% ps-7 pe-7 pt-20 pb-20">
+				<div class="flex flex-col justify-center gap-3 p-5">
+					<TextCaption text={caption1.text} dark={caption1.dark}></TextCaption>
+          <TextLegend text={legend1.text} dark={legend1.dark}></TextLegend>
+          <TextDescription text={description1.text} dark={description1.dark}></TextDescription>
+					<a href={'/contact'}>
+						<Button>Contáctanos</Button>
+					</a>              
+				</div>
+				<div class="hidden xl:block relative p-5 md:shape md:shape-1 md:w-auto min-h-[73vh] md:h-auto">
+					<div class="absolute bg-color-600 rounded-full w-20 h-20 translate-y-96 translate-x-10"></div>
+					<div class="absolute bg-color-200 rounded-full w-10 h-10 translate-y-96 translate-x-10"></div>
+					<div class="absolute bg-color-600 translate-x-96 translate-y-96 md:translate-x-80 md:translate-y-64 text-color-200 font-black p-5 rounded-md">
+						<h2 class="text-2xl mb-3">Hasta 350 Mbps</h2>
+						<h3 class="">L-Band, Ku-Band</h3>
+						<p class="text-sm text-color-400">High Quality Monitor 24/7</p>
+					</div>
+				</div>
+			</div>
+		</section>        
+		<section>
+			<div class="flex flex-col w-full gap-3 bg-[url('/images/backgrounds/banner-featured-1.jpg')] bg-cover pt-20 pb-20">
+				<div class="flex flex-col justify-start items-start ms-10 mt-10 gap-3">
+					<TextCaption text={caption2.text} dark={caption2.dark}></TextCaption>
+          <TextLegend text={legend2.text} dark={legend2.dark}></TextLegend>          
+				</div>
+				<div class="grid md:grid-cols-4 p-5 gap-10">
+					{services.map(service => <CardService id={service.id} name={service.name} route={service.route} brief={service.brief} icon={service.icon}></CardService>)}
+				</div>
+			</div>
+		</section>
+		<section class="bg-color-900">
+			<div class="flex flex-col w-full pt-20 pb-20">
+				<div class="flex flex-col items-center text-center gap-3">
+					<TextCaption text={caption3.text} dark={caption3.dark}></TextCaption>
+          <TextLegend text={legend3.text} dark={legend3.dark}></TextLegend>          
+				</div>
+				<div class="grid grid-cols-1 md:grid-cols-2 m-5">
+					{sectors.map(sector => <CardSector id={sector.id} src={sector.src} name={sector.name} brief={sector.brief}></CardSector>)}
+				</div>
+			</div>
+		</section>				
+	</main>
+</Layout>

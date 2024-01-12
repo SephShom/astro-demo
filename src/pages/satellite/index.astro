@@ -1,0 +1,125 @@
+---
+import type { BreadcrumbModel } from "../../components/navigation/model";
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumb from "../../components/navigation/Breadcrumb/Breadcrumb.astro";
+import Button from "../../components/commons/Button";
+import TextCaption from "../../components/commons/TextCaption.astro";
+import TextDescription from "../../components/commons/TextDescription.astro";
+import TextLegend from "../../components/commons/TextLegend.astro";
+import CardSector from "../../components/commons/CardSector.astro";
+import CardWide from "../../components/commons/CardWide.astro";
+
+const breadcrumbs: BreadcrumbModel[] = [
+  {
+    id: 1,
+    name: 'Inicio',
+    route: '/'
+  },
+  {
+    id: 2,
+    name: 'Servicios',
+    route: '/satellite'
+  }
+];
+
+const caption1 = { text: "COMUNICACION SATELITAL", dark: false };
+const legend1 = { text: "Acceda a la nube a través de una red de satelites de órbita baja", dark: false };
+const description1 = { text: "", dark: false };
+
+const caption2 = { text: "SATCOM", dark: true };
+const legend2 = { text: "Modalidades", dark: true };
+
+const services = [
+  {
+    id: 1,
+    route: '/satellite/internet-vsat',
+    name: 'Estación VSAT',
+    brief: 'Sistema VSAT completamente escalable L-BAND o Ku. Monitorizado QAs 24/7',
+    icon: 'satellite'
+  },
+  {
+    id: 2,
+    route: '/satellite/truck-sat',
+    name: 'Internet Móvil',
+    brief: 'Sistemas VSAT que se instalan sobre vehículos, son robotizadas y autoapuntables',
+    icon: 'truck'
+  },
+  {
+    id: 3,
+    route: '/satellite/mobile-sat',
+    name: 'Internet Portátil',
+    brief: 'Los mejores equipos de recepción y transmisión satelital, que caben en un maletín',
+    icon: 'portative'
+  },
+  {
+    id: 4,
+    route: '/satellite/high-star',
+    name: 'High Speed Broadband',
+    brief: 'Equipo para conectarse a la red de satélites de órbita baja mas eficiente del mercado',
+    icon: 'starlink'
+  },
+  {
+    id: 5,
+    route: '/satellite/phone-sat',
+    name: 'Telefonía Satelital',
+    brief: 'Teléfonos para voz y SMSs, activaciones temporales bajo demanda',
+    icon: 'mobile'
+  },
+  {
+    id: 6,
+    route: '/satellite/link-sat',
+    name: 'Res Privada Satelital',
+    brief: 'Servicio para interconectar oficinas remotas con o sin servicio de internet',
+    icon: 'network'
+  },
+  {
+    id: 7,
+    route: '/satellite/backup-sat',
+    name: 'BackUp & Redundancia',
+    brief: 'Conexiones de autogestión, se activan si la red principal ha fallado',
+    icon: 'security'
+  }
+];
+---
+
+<Layout title="Servicios Satelitales">
+  <div class="pt-12 h-[60vh] bg-color-800 flex flex-col items-center justify-center gap-9">
+    <h2 class="text-color-200 text-5xl text-center">Nuestros Servicios</h2>
+    <Breadcrumb items={breadcrumbs}></Breadcrumb>
+  </div>
+  <main class="w-screen">
+    <section>
+      <div class="grid grid-cols-1 md:grid-cols-2 bg-color-200 h-max md:min-h-[73vh] ps-7 pe-7 pt-20 pb-20 overflow-hidden">
+        <div class="flex flex-col justify-center gap-3 p-5">
+          <TextCaption text={caption1.text} dark={caption1.dark}></TextCaption>
+          <TextLegend text={legend1.text} dark={legend1.dark}></TextLegend>
+          <TextDescription text={description1.text} dark={description1.dark}></TextDescription>
+          <a href={'/contact'}>
+            <Button>Contáctanos</Button>
+          </a>              
+        </div>
+        <div class="relative p-5 w-auto md:block hidden">
+          <img class="absolute" src={'/images/backgrounds/background04.svg'} alt="Presentation"/>
+          <div class="absolute bg-color-600 rounded-full w-20 h-20 translate-y-60"></div>
+          <div class="absolute bg-color-200 rounded-full w-10 h-10 translate-y-64 translate-x-10"></div>          
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-color-900">
+      <div class="flex flex-col w-full pt-20 pb-20">
+        <div class="flex flex-col justify-start items-start ms-10 mt-10">
+          <TextCaption text={caption1.text} dark={caption1.dark}></TextCaption>
+          <TextLegend text={legend1.text} dark={legend1.dark}></TextLegend>
+          <TextDescription text={description1.text} dark={description1.dark}></TextDescription>
+        </div>
+        <div class="flex flex-col gap-8 p-10 md:ps-32 md:pe-32 md:pt-20 md:pb-20">
+          {services.map(sector => (
+            <CardWide route={sector.route} id={sector.id} name={sector.name} brief={sector.brief} icon={sector.icon}></CardWide>
+          ))}
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Layout>

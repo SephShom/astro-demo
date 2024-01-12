@@ -1,0 +1,20 @@
+---
+interface Props {
+  text: string;
+  dark: boolean;
+}
+
+const {text, dark} = Astro.props;
+---
+
+<div>
+  {dark ? 
+    <div class="text-accent-all font-bold">
+      {text}
+    </div>
+    :
+    <div class="text-accent-all font-bold">
+      {text}
+    </div>}
+</div>
+  
